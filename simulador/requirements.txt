@@ -1,0 +1,2 @@
+# O simulador usa apenas a biblioteca padrão do Python 3.
+# Adicione aqui dependências futuras (ex.: pandas) quando necessário.

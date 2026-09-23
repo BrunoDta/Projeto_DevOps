@@ -1,0 +1,13 @@
+id_registro,data_hora,id_produto,produto,categoria,preco_unitario,estoque_atual,estoque_minimo,vendas_dia,dias_ate_validade
+d16b1166-6ae0-4217-a647-c4b81285b38e,2026-09-23T23:23:44,P008,Pão francês kg,Padaria,16.09,4,20,9,8
+6c0ec15c-abc2-4bf9-b247-adc17f9687e6,2026-09-23T23:23:44,P002,Feijão 1kg,Mercearia,8.42,57,40,66,135
+e3ae3917-0470-4bc6-b065-8f917b431685,2026-09-23T23:23:44,P006,Tomate kg,Hortifrúti,8.75,16,25,29,9
+cbce6c73-df69-4c46-a39e-24a233d44404,2026-09-23T23:23:44,P004,Iogurte natural,Laticínios,3.8,12,45,62,4
+bd45c285-3e6a-4266-b417-56ddb59f540d,2026-09-23T23:23:44,P008,Pão francês kg,Padaria,16.27,54,20,13,8
+610ac7ef-6263-4e7d-9911-03637ba23bc9,2026-09-23T23:23:44,P004,Iogurte natural,Laticínios,3.84,90,45,18,4
+615afce0-fbd2-49d1-95ec-9220a8ca761a,2026-09-23T23:23:44,P001,Arroz 5kg,Mercearia,27.34,36,30,22,280
+df9fff9b-5194-4720-be81-4d06be86c6c2,2026-09-23T23:23:44,P003,Leite integral 1L,Laticínios,5.25,46,60,12,1
+563d555e-4563-47da-af77-ce29f4ca9022,2026-09-23T23:23:44,P006,Tomate kg,Hortifrúti,9.27,43,25,37,1
+f5fe5e95-41e1-4239-bbc7-d5f745701f40,2026-09-23T23:23:44,P007,Peito de frango kg,Açougue,18.84,0,30,39,8
+b6b00dc6-d703-4e99-993e-fac00b199ef7,2026-09-23T23:23:44,P003,Leite integral 1L,Laticínios,5.23,154,60,9,10
+2ded15b3-abb8-4ac1-a270-7393e3a2c381,2026-09-23T23:23:44,P009,Refrigerante 2L,Bebidas,9.95,144,50,73,90
