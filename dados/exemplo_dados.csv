@@ -1,13 +1,21 @@
 id_registro,data_hora,id_produto,produto,categoria,preco_unitario,estoque_atual,estoque_minimo,vendas_dia,dias_ate_validade
-d16b1166-6ae0-4217-a647-c4b81285b38e,2026-09-23T23:23:44,P008,Pão francês kg,Padaria,16.09,4,20,9,8
-6c0ec15c-abc2-4bf9-b247-adc17f9687e6,2026-09-23T23:23:44,P002,Feijão 1kg,Mercearia,8.42,57,40,66,135
-e3ae3917-0470-4bc6-b065-8f917b431685,2026-09-23T23:23:44,P006,Tomate kg,Hortifrúti,8.75,16,25,29,9
-cbce6c73-df69-4c46-a39e-24a233d44404,2026-09-23T23:23:44,P004,Iogurte natural,Laticínios,3.8,12,45,62,4
-bd45c285-3e6a-4266-b417-56ddb59f540d,2026-09-23T23:23:44,P008,Pão francês kg,Padaria,16.27,54,20,13,8
-610ac7ef-6263-4e7d-9911-03637ba23bc9,2026-09-23T23:23:44,P004,Iogurte natural,Laticínios,3.84,90,45,18,4
-615afce0-fbd2-49d1-95ec-9220a8ca761a,2026-09-23T23:23:44,P001,Arroz 5kg,Mercearia,27.34,36,30,22,280
-df9fff9b-5194-4720-be81-4d06be86c6c2,2026-09-23T23:23:44,P003,Leite integral 1L,Laticínios,5.25,46,60,12,1
-563d555e-4563-47da-af77-ce29f4ca9022,2026-09-23T23:23:44,P006,Tomate kg,Hortifrúti,9.27,43,25,37,1
-f5fe5e95-41e1-4239-bbc7-d5f745701f40,2026-09-23T23:23:44,P007,Peito de frango kg,Açougue,18.84,0,30,39,8
-b6b00dc6-d703-4e99-993e-fac00b199ef7,2026-09-23T23:23:44,P003,Leite integral 1L,Laticínios,5.23,154,60,9,10
-2ded15b3-abb8-4ac1-a270-7393e3a2c381,2026-09-23T23:23:44,P009,Refrigerante 2L,Bebidas,9.95,144,50,73,90
+f69861b1-40bf-469f-bb3e-cc4d345acf90,2026-09-24T00:10:58,P003,Leite integral 1L,Laticínios,4.95,138,60,39,3
+6ac368dc-9ed2-44df-be45-ec739a1d1429,2026-09-24T00:10:58,P009,Refrigerante 2L,Bebidas,9.81,119,50,70,111
+472c73c3-5679-4d3e-86ed-bc0e8e36853f,2026-09-24T00:10:58,P009,Refrigerante 2L,Bebidas,9.66,145,50,27,175
+0a482bab-4c77-433f-b0fa-02322cc8b6cb,2026-09-24T00:10:58,P004,Iogurte natural,Laticínios,3.92,93,45,66,6
+a46b598a-a18d-4ccf-b735-d4dc2e5a679c,2026-09-24T00:10:58,P007,Peito de frango kg,Açougue,18.34,1,30,43,7
+518ce810-400f-4c26-b5f1-9edcb4b3e12c,2026-09-24T00:10:58,P005,Banana prata kg,Hortifrúti,7.15,72,35,27,1
+383587e5-3fc5-401b-9c65-fc7f90be15f4,2026-09-24T00:10:58,P003,Leite integral 1L,Laticínios,5.25,18,60,30,1
+ba1fad35-81fa-4472-a4b5-934a610b648e,2026-09-24T00:10:58,P005,Banana prata kg,Hortifrúti,7.0,39,35,45,4
+9c78433a-b5e9-47bc-9de0-6987230c34d9,2026-09-24T00:10:58,P001,Arroz 5kg,Mercearia,28.95,74,30,17,231
+b558ceca-3dc6-4035-9fa0-4017dff82680,2026-09-24T00:10:58,P008,Pão francês kg,Padaria,15.58,49,20,0,6
+b8ba6208-9b10-4612-b8be-9e84eca70fe6,2026-09-24T00:10:58,P003,Leite integral 1L,Laticínios,5.35,162,60,42,6
+116cf04e-3781-4a30-bdbf-339ea9cc410e,2026-09-24T00:10:58,P005,Banana prata kg,Hortifrúti,7.23,11,35,1,7
+ab143ca3-35ad-42eb-8ffa-64c93194c47d,2026-09-24T00:10:58,P003,Leite integral 1L,Laticínios,5.29,167,60,66,5
+09c63110-fceb-4eae-80f2-7ee30de0257a,2026-09-24T00:10:58,P005,Banana prata kg,Hortifrúti,6.95,53,35,59,10
+c0bd018a-9164-4b7b-bbd7-25413a7015e8,2026-09-24T00:10:58,P004,Iogurte natural,Laticínios,3.91,87,45,37,2
+fff3676d-c5b6-4093-9887-f2e0db03c136,2026-09-24T00:10:58,P005,Banana prata kg,Hortifrúti,6.95,44,35,50,2
+7355713a-466f-40db-b4bd-b07f831bbba9,2026-09-24T00:10:58,P009,Refrigerante 2L,Bebidas,9.45,58,50,67,235
+d307a9ed-05c8-4f78-a65b-4c6edda45902,2026-09-24T00:10:58,P008,Pão francês kg,Padaria,15.74,35,20,22,2
+38be22ca-a7ba-4f9c-a023-d4410c213a32,2026-09-24T00:10:58,P007,Peito de frango kg,Açougue,18.67,87,30,60,3
+3083a67f-5617-4bba-9ce9-6a18d1064e21,2026-09-24T00:10:58,P008,Pão francês kg,Padaria,15.42,50,20,9,4
