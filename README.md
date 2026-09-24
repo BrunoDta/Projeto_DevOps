@@ -74,7 +74,7 @@ virsh -c qemu:///system net-autostart default
 ### 1. Clonar o repositório
 
 ```bash
-git clone git@github.com:BrunoDta/Projeto_DevOps.git
+git clone https://github.com/BrunoDta/Projeto_DevOps.git
 cd Projeto_DevOps
 ```
 
