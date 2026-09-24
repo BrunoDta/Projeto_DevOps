@@ -78,6 +78,15 @@ git clone https://github.com/BrunoDta/Projeto_DevOps.git
 cd Projeto_DevOps
 ```
 
+### 1.1 Criar a chave SSH (se ainda não existir)
+
+O OpenTofu instala a chave **pública** na VM, e o Ansible e o `deploy.sh` usam
+a chave **privada** para acessá-la:
+
+```bash
+ls ~/.ssh/id_ed25519.pub || ssh-keygen -t ed25519
+```
+
 ### 2. Provisionar a VM (OpenTofu + cloud-init)
 
 ```bash
@@ -200,6 +209,7 @@ Campos de cada registro:
 | `./deploy.sh: Permissão negada` | Rode `chmod +x deploy.sh`. |
 | `tofu` mostra erro de Python (`gi`, `Ufo`) | O comando `tofu` instalado é outro pacote. Remova-o e instale o OpenTofu oficial. |
 | Instalador do OpenTofu falha na verificação de chave | Em sistemas em português, rode `LC_ALL=C ./install-opentofu.sh --install-method standalone`. |
+| `no file exists at ".../.ssh/id_ed25519.pub"` | Falta a chave SSH. Rode `ssh-keygen -t ed25519` ou informe outra com `-var "ssh_public_key_path=..."`. |
 
 ## Segurança
 
