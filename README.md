@@ -7,11 +7,28 @@ configura seu primeiro boot com **cloud-init**, prepara o ambiente com **Ansible
 transfere o simulador por **SSH/SCP** e gera dados de estoque dentro da VM.
 
 ## Arquitetura
-
+Máquina hospedeira (Linux + libvirt/KVM)
+├─ OpenTofu ──► cria a VM (Ubuntu 22.04 cloud image) + disco do cloud-init
+├─ cloud-init ► usuário "devops", chave SSH, pacotes básicos (no 1º boot)
+├─ Ansible ───► instala Python e cria /opt/supermercado/{simulador,dados}
+└─ SSH/SCP ───► envia simulador/ e executa dentro da VM
 
 ## Estrutura do repositório
-
-## Estrutura do repositório
+projeto-data-science/
+├── infraestrutura/
+│ ├── main.tf # VM, discos e cloud-init (OpenTofu)
+│ ├── variables.tf # variáveis (nome, CPU, memória, chave SSH...)
+│ ├── cloud_init.cfg # configuração do primeiro boot
+│ ├── deploy.sh # envia o simulador por SCP e executa
+│ └── ansible/
+│ ├── inventory.ini
+│ └── playbook.yml
+├── simulador/
+│ ├── simulador.py
+│ └── requirements.txt
+├── dados/exemplo_dados.csv
+├── .gitignore
+└── README.md
 
 ## Pré-requisitos (máquina hospedeira Linux)
 
