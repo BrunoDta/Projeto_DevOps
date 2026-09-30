@@ -8,33 +8,10 @@ transfere o simulador por **SSH/SCP** e gera dados de estoque dentro da VM.
 
 ## Arquitetura
 
-```
-Máquina hospedeira (Linux + libvirt/KVM)
-  ├─ OpenTofu ──► cria a VM (Ubuntu 22.04 cloud image) + disco do cloud-init
-  ├─ cloud-init ► usuário "devops", chave SSH, pacotes básicos (no 1º boot)
-  ├─ Ansible ───► instala Python e cria /opt/supermercado/{simulador,dados}
-  └─ SSH/SCP ───► envia simulador/ e executa dentro da VM
-```
 
 ## Estrutura do repositório
 
-```
-projeto-data-science/
-├── infraestrutura/
-│   ├── main.tf            # VM, discos e cloud-init (OpenTofu)
-│   ├── variables.tf       # variáveis (nome, CPU, memória, chave SSH...)
-│   ├── cloud_init.cfg     # configuração do primeiro boot
-│   ├── deploy.sh          # envia o simulador por SCP e executa
-│   └── ansible/
-│       ├── inventory.ini
-│       └── playbook.yml
-├── simulador/
-│   ├── simulador.py
-│   └── requirements.txt
-├── dados/exemplo_dados.csv
-├── .gitignore
-└── README.md
-```
+## Estrutura do repositório
 
 ## Pré-requisitos (máquina hospedeira Linux)
 
@@ -74,17 +51,8 @@ virsh -c qemu:///system net-autostart default
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/BrunoDta/Projeto_DevOps.git
+git clone git@github.com:BrunoDta/Projeto_DevOps.git
 cd Projeto_DevOps
-```
-
-### 1.1 Criar a chave SSH (se ainda não existir)
-
-O OpenTofu instala a chave **pública** na VM, e o Ansible e o `deploy.sh` usam
-a chave **privada** para acessá-la:
-
-```bash
-ls ~/.ssh/id_ed25519.pub || ssh-keygen -t ed25519
 ```
 
 ### 2. Provisionar a VM (OpenTofu + cloud-init)
@@ -203,13 +171,12 @@ Campos de cada registro:
 |---|---|
 | `can't find storage pool 'default'` | Crie o pool `default` (seção "Preparar o libvirt"). |
 | `network 'default' is not active` | Rode `virsh -c qemu:///system net-start default`. |
-| `domain 'vm-simulador' already exists` | Sobrou uma VM de um `apply` que falhou. Remova com `virsh -c qemu:///system undefine vm-simulador` e repita o `apply`. |
-| `Could not open ... .qcow2: Permission denied` | Ajuste o dono dos discos (`sudo sh -c 'chown libvirt-qemu:kvm /var/lib/libvirt/images/vm-simulador-*'`). Se persistir, defina `security_driver = "none"` em `/etc/libvirt/qemu.conf` e reinicie o `libvirtd` (o AppArmor pode estar bloqueando o QEMU). |
+| `domain 'vm-simulador' already exists` | Sobrou uma VM registrada de um `apply` anterior que falhou no meio. Rode `virsh -c qemu:///system undefine vm-simulador` antes de repetir o `tofu apply`. |
+| `Could not open ... .qcow2: Permission denied` | Primeiro ajuste o dono dos discos: `sudo sh -c 'chown libvirt-qemu:kvm /var/lib/libvirt/images/vm-simulador-*'`. Se persistir, é o AppArmor bloqueando o QEMU. Confirme com `virsh -c qemu:///system capabilities | grep -A3 secmodel`: se aparecer `<model>apparmor</model>`, edite `/etc/libvirt/qemu.conf` e descomente a linha **`#security_driver = "none"`** (não é a `#security_driver = "selinux"` — no Ubuntu/Mint 24.04 a linha ativa por padrão é a do `"none"` comentado). Confirme com `sudo grep -n "^security_driver" /etc/libvirt/qemu.conf` e reinicie de forma completa: `sudo systemctl stop libvirtd libvirtd.socket libvirtd-ro.socket libvirtd-admin.socket && sudo pkill -9 libvirtd && sudo systemctl start libvirtd` (um `restart` simples pode não recarregar a mudança). Repita o `capabilities` para confirmar que `apparmor` sumiu da lista, remova a VM órfã (`virsh -c qemu:///system undefine vm-simulador`) e rode `tofu apply` de novo. |
 | Ansible: `No route to host` | O IP no `inventory.ini` está desatualizado. Use `tofu output vm_ip`. |
 | `./deploy.sh: Permissão negada` | Rode `chmod +x deploy.sh`. |
 | `tofu` mostra erro de Python (`gi`, `Ufo`) | O comando `tofu` instalado é outro pacote. Remova-o e instale o OpenTofu oficial. |
 | Instalador do OpenTofu falha na verificação de chave | Em sistemas em português, rode `LC_ALL=C ./install-opentofu.sh --install-method standalone`. |
-| `no file exists at ".../.ssh/id_ed25519.pub"` | Falta a chave SSH. Rode `ssh-keygen -t ed25519` ou informe outra com `-var "ssh_public_key_path=..."`. |
 
 ## Segurança
 
