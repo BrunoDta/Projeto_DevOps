@@ -3,6 +3,7 @@ Integrantes do Grupo
 Bruno Dotta Aleixo | RA: 23000353
 Felipe Augusto Paulino de Morais | RA: 23000426
 Kayky Rodrigo Graciano de Freitas | RA: 23000421
+Yan Gomes Aguiar de Almeida | RA: 23000825
 
 # Projeto Integrado – Ajuste de estoque de supermercado (Data Science)
 
