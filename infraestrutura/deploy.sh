@@ -9,7 +9,7 @@ CHAVE="${3:-$HOME/.ssh/id_ed25519}"
 RAIZ="$(cd "$(dirname "$0")/.." && pwd)"
 SSH_OPTS=(-i "$CHAVE" -o StrictHostKeyChecking=accept-new)
 
-scp "${SSH_OPTS[@]}" -r "$RAIZ/simulador/." "$USUARIO@$IP:/opt/supermercado/simulador/"
+scp "${SSH_OPTS[@]}" -r "$RAIZ"/simulador/* "$USUARIO@$IP:/opt/supermercado/simulador/"
 
 ssh "${SSH_OPTS[@]}" "$USUARIO@$IP" \
   "cd /opt/supermercado/simulador && python3 simulador.py && ls -l /opt/supermercado/dados && tail -n 5 /opt/supermercado/dados/estoque.csv"
